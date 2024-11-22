@@ -18,14 +18,16 @@ supabase-stop: ## stop local supabase
 supabase-reset: ## reset local supabase
 	npx supabase stop --no-backup
 
-supabase-remote-init:
+supabase-remote-init: ## init remote supabase
 	npm run supabase:remote:init
 	$(MAKE) supabase-deploy
 
-supabase-deploy:
+supabase-deploy: ## deploy supabase
 	npx supabase db push
 	npx supabase functions deploy
 
 build: ## build the app
 	npm run build
 
+typecheck: ## typecheck the app
+	npm run typecheck --workspace=admin
