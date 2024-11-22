@@ -8,6 +8,9 @@ install: package.json ## install dependencies
 
 admin-start: ## start admin app
 	npm run dev --workspace=admin
+
+application-start: ## start application app
+	npm run dev --workspace=application
 	
 supabase-start: ## start supabase locally
 	npx supabase start
