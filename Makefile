@@ -31,3 +31,6 @@ build: ## build the app
 
 typecheck: ## typecheck the app
 	npm run typecheck --workspace=admin
+
+lint-check: ## lint the app
+	npm run lint:check

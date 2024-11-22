@@ -1,6 +1,5 @@
 import { Admin, Resource } from 'react-admin';
 import { BrowserRouter } from 'react-router-dom';
-import { createClient } from '@supabase/supabase-js';
 
 import {
     CreateGuesser,
@@ -9,19 +8,9 @@ import {
     LoginPage,
     ShowGuesser,
     defaultI18nProvider,
-    supabaseDataProvider,
-    supabaseAuthProvider,
 } from 'ra-supabase';
-
-const instanceUrl = import.meta.env.VITE_SUPABASE_URL;
-const apiKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabaseClient = createClient(instanceUrl, apiKey);
-const dataProvider = supabaseDataProvider({
-    instanceUrl,
-    apiKey,
-    supabaseClient,
-});
-const authProvider = supabaseAuthProvider(supabaseClient, {});
+import { dataProvider } from './provider/dataProvider';
+import { authProvider } from './provider/authProvider';
 
 export const App = () => (
     <BrowserRouter>
